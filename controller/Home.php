@@ -3,7 +3,7 @@
 class Home extends Controller
 {
     protected $user;
-    protected $message;
+
 
 
     function __construct()
@@ -13,22 +13,40 @@ class Home extends Controller
     }
 
 
-    function user()
+    function listuser()
     {
-
+        $user = $this->user->authenToken();
+        if ($user == null)
+        {
+            //$status_user = false;
+            header('Location: /Lession2/Home/login');
+            die();
+        }
         $view = $this->view("user", [
             "list" => $this->user->listUser(),
+            "user"=> $user,
         ]);
     }
     function login()
     {
+        $message='';
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($this->user->Login($_POST['email'], md5($_POST['password']) )) {
-                header('Location: ./user');
+                if(!empty($_POST['remember'])){
+                    $token = md5($_POST['email']. time());
+                    setcookie('token', $token, time() + 6*60*60, '/');
+                    $this->user->updateRemember($_POST['email'],$token);
+                }
+
+                header('Location: ./listuser');
             }
+        }else {
+            $message = "* Tài khoản đăng nhập không đúng!!!";
         }
+
         $view = $this->view("login", [
-            "title" => "Login"
+            "title" => "Login",
+            "message"=>'',
         ]);
     }
     function register()
@@ -55,5 +73,15 @@ class Home extends Controller
             "message"=>$this->message
         ]);
     }
-
+    function logout()
+    {
+        $token = $_COOKIE['token'];
+        if(empty($token)){
+            header('Location: /Lession2/Home/login');
+            die();
+        }
+        setcookie('token','', time() -7 * 24 * 60 * 60, '/');
+        header('Location: /Lession2/Home/login');
+        die();
+    }
 }

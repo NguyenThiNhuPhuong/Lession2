@@ -8,8 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>User</title>
+    <!-- Font awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title><?=$data['user']['role']?></title>
 </head>
 <body>
 <div class="container">
@@ -27,7 +28,7 @@
                     <a class="nav-link btn btn-primary" href="">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Log out</a>
+                    <a class="nav-link " href="/Lession2/Home/logout">Log out</a>
                 </li>
             </ul>
 
@@ -51,19 +52,50 @@
             </thead>
             <tbody>
             <?php
-            foreach($data['list'] as $item)
-            echo
-            '<tr>
+            if($data['user']['role']=='Admin') {
+                foreach ($data['list'] as $item)
+                    echo
+                        '<tr>
 
-                <th scope="row">'.$item['id'].'</th>
-                <td>'.$item['fullname'].'</td>
-                <td>'.$item['email'].'</td>
-                <td>'.$item['role'].'</td>
-                <td></td>
-            </tr>'
+                <th scope="row">' . $item['id'] . '</th>
+                <td>' . $item['fullname'] . '</td>
+                <td>' . $item['email'] . '</td>
+                <td>' . $item['role'] . '</td>
+                <td>
+                   <a><i class="fa fa-pencil-square-o"></i></a>
+                   <a> <i class="fa fa-minus-circle"></i></a>
+                   <a> <i class="fa fa-file"></i></a>
+                   <a><i class="fa fa-eye"></i></a>
+                </td>
+            </tr>';
+            }else{
+                    echo
+                        '<tr>
+
+                <th scope="row">' . $data['user']['id'] . '</th>
+                <td>' . $data['user']['fullname'] . '</td>
+                <td>' . $data['user']['email'] . '</td>
+                <td>' . $data['user']['role'] . '</td>
+                <td>
+                   <a><i class="fa fa-pencil-square-o"></i></a>
+                   <a> <i class="fa fa-minus-circle"></i></a>
+                   <a> <i class="fa fa-file"></i></a>
+                   <a><i class="fa fa-eye"></i></a>
+                </td>
+            </tr>';
+            }
             ?>
             </tbody>
         </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
     </div>
     <footer style="margin-top: 50px">
         <p class="">Coppy right @2022-NguyenThiNhuPhuong</p>
@@ -79,6 +111,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </div>
 </body>
 </html>

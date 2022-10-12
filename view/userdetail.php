@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Login</title>
+    <title>Detail</title>
 </head>
 <body>
 <div class="container">
@@ -24,10 +24,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../">Home </a>
+                    <a class="nav-link" href="./user">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary" href="#">Login</a>
+                    <a class="nav-link btn btn-primary" href="#">Detail</a>
                 </li>
             </ul>
 
@@ -39,15 +39,15 @@
         </a>
     </nav>
     <div class="row justify-content-center" style="margin-top: 80px">
-        <div class="w-100 row justify-content-center">
-            <p class="text-danger "><?= $data['message'] ?></p>
-        </div>
         <div class="row justify-content-center w-50 border border-secondary">
             <form style="width: 90%;margin: 20px 0" method="post" action="">
                 <div class="form-group">
+                    <label for="exampleInputFullname">Full name</label>
+                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" required>
+                </div>
+                <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           name="email" required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
@@ -55,11 +55,12 @@
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
                 </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
-                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                <div class="form-group">
+                    <label for="exampleInputConfirmpassword">Confirm password</label>
+                    <input type="password" class="form-control" id="exampleInputConfirmpassword" name="confirmpassword" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>

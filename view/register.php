@@ -39,6 +39,10 @@
         </a>
     </nav>
     <div class="row justify-content-center" style="margin-top: 80px">
+
+        <div class="w-100 row justify-content-center">
+            <p class="text-danger "><?= $data['message'] ?></p>
+        </div>
         <div class="row justify-content-center w-50 border border-secondary">
             <form style="width: 90%;margin: 20px 0" method="post" action="">
                 <div class="form-group">
@@ -47,7 +51,8 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           name="email" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
@@ -57,7 +62,8 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputConfirmpassword">Confirm password</label>
-                    <input type="password" class="form-control" id="exampleInputConfirmpassword" name="confirmpassword" required>
+                    <input type="password" class="form-control" id="exampleInputConfirmpassword" name="confirmpassword"
+                           required>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Register</button>

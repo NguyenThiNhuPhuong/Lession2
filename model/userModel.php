@@ -1,12 +1,17 @@
 <?php
+
 class userModel extends Database
 {
-    function updateUser($username, $updated_at, $password, $email, $type_id)
+    function updateUser($fullname, $password, $email, $role)
     {
-        $query = "UPDATE user SET username = '" . $username . "',updated_at='" . $updated_at . "',password='" . $password . "',type_id='" . $type_id . "'WHERE  email='" . $email . "'";
+        $query = "UPDATE user SET fullname = '" . $fullname . "',password='" . $password . "',role='" . $role . "'WHERE  email='" . $email . "'";
         $this->execute($query);
     }
-
+    function updateRemember(  $email,$remember)
+    {
+        $query = "UPDATE user SET remember = '" . $remember . "'WHERE  email='" . $email . "'";
+        $this->execute($query);
+    }
     function Login($email, $password)
     {
         $query = "SELECT * From user WHERE email='" . $email . "' AND password='" . $password . "'";
@@ -30,6 +35,25 @@ class userModel extends Database
         return true;
     }
 
+    function authenToken()
+    {
+        if (isset($_COOKIE['token'])) {
+            $token = $_COOKIE['token'];
+            if (empty($token)) {
+                return null;
+            }
+        } else {
+            return null;
+        }
+        $query = "SELECT * From user WHERE remember='".$token."'";
+        $list = $this->executeResult($query);
+        if ($list != null && count($list) > 0) {
+            return $list[0];
+        }
+        return null;
+
+    }
+
     function Register($email, $fullname, $password, $role)
     {
         $query = "INSERT INTO user (fullname,password,role,email) VALUES('" . $fullname . "','" . $password . "','" . $role . "','" . $email . "')";
@@ -41,11 +65,13 @@ class userModel extends Database
         $query = "SELECT * FROM user";
         return $this->executeResult($query);
     }
+
     function user($email)
     {
         $query = "SELECT * FROM nguoidung WHERE email='$email'";
         return $this->executeResult($query, true);
     }
+
     function deleteUser($email)
     {
         $query = "DELETE FROM user WHERE email='" . $email . "'";
