@@ -2,7 +2,7 @@
 class App
 {
     protected $controller = "Home";
-    protected $action = "default";
+    protected $action = "user";
     protected $params = [];
 
     function __construct()
@@ -10,14 +10,14 @@ class App
         $url = $this->UrlProcess();
 
         if (isset($url[0])) {
-            if(file_exists("C:/xampp/htdocs/De3/controller/" . $url[0] . ".php")){
+            if(file_exists("C:/xampp/htdocs/Lession2/controller/" . $url[0] . ".php")){
                 $this->controller = $url[0];
                 unset($url[0]);
             }
 
         }
 
-        require_once("C:/xampp/htdocs/De3/controller/". $this->controller .".php");
+        require_once("C:/xampp/htdocs/Lession2/controller/". $this->controller .".php");
 
         //xu ly action
         if (isset($url[1])) {

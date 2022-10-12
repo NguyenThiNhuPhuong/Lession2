@@ -18,9 +18,9 @@ class userModel extends Database
         }
     }
 
-    function isEmail($email) //kiem tra xem email da dk tai khoan ch
+    function isEmail($email)
     {
-        $query = " SELECT email from user";
+        $query = "SELECT email from user";
         $list = $this->executeResult($query);
         for ($i = 0; $i < count($list); $i++) {
             if ($email == $list[$i]['email']) {
@@ -30,13 +30,13 @@ class userModel extends Database
         return true;
     }
 
-    function Register($email, $username, $password, $type_id, $nen, $avatar, $created_at, $updated_at)
+    function Register($email, $fullname, $password, $role)
     {
-        $query = "INSERT INTO user (username,password,type_id,email,nen,avatar,created_at,updated_at) VALUES('" . $username . "','" . $password . "','" . $type_id . "','" . $email . "','" . $nen . "','" . $avatar . "','" . $created_at . "','" . $updated_at . "')";
+        $query = "INSERT INTO user (fullname,password,role,email) VALUES('" . $fullname . "','" . $password . "','" . $role . "','" . $email . "')";
         $this->execute($query);
     }
 
-    function dsUser()
+    function listUser()
     {
         $query = "SELECT * FROM user";
         return $this->executeResult($query);

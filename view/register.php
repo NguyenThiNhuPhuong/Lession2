@@ -9,50 +9,63 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body>
 <div class="container">
-    <!-- Content here -->
 
-<!--    <div class="d-flex">-->
-<!--        <ul class="d-flex">-->
-<!--            <li>-->
-<!--                <button class="btn">Home</button>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <button class="btn btn-primary">Login</button>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--        <img src="https://itviec.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeWtwREE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6a961a174c57d5a6a4debb065f73f12095e9485b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJc0FXa0NMQUU9IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--091b576187e678c126e08874e5757891d97541a7/lampart-logo.jpg">-->
-<!--    </div>-->
+    <nav class="navbar navbar-expand-lg navbar-light">
 
-    <nav class="navbar navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./user">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="#">Register</a>
+                </li>
+            </ul>
+
+
+        </div>
         <a class="navbar-brand" href="#">
-            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+            <img src="https://itviec.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeWtwREE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6a961a174c57d5a6a4debb065f73f12095e9485b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJc0FXa0NMQUU9IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--091b576187e678c126e08874e5757891d97541a7/lampart-logo.jpg"
+                 width="80" height="80" alt="logo">
         </a>
     </nav>
-    <div class="w-25 border">
-        <form class="">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
+    <div class="row justify-content-center" style="margin-top: 80px">
+        <div class="row justify-content-center w-50 border border-secondary">
+            <form style="width: 90%;margin: 20px 0" method="post" action="">
+                <div class="form-group">
+                    <label for="exampleInputFullname">Full name</label>
+                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmpassword">Confirm password</label>
+                    <input type="password" class="form-control" id="exampleInputConfirmpassword" name="confirmpassword" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
     </div>
-    <footer>
-        <p class="">Coppy right @NguyenThiNhuPhuong</p>
+    <footer style="margin-top: 50px">
+        <p class="">Coppy right @2022-NguyenThiNhuPhuong</p>
     </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

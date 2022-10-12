@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home </a>
+                    <a class="nav-link" href="">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn btn-primary" href="#">Login</a>
@@ -40,16 +40,16 @@
     </nav>
     <div class="row justify-content-center" style="margin-top: 80px">
         <div class="row justify-content-center w-50 border border-secondary">
-            <form style="width: 90%;margin: 20px 0">
+            <form style="width: 90%;margin: 20px 0" method="post" action="">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -60,7 +60,7 @@
         </div>
     </div>
     <footer style="margin-top: 50px">
-        <p class="">Coppy right @NguyenThiNhuPhuong</p>
+        <p class="">Coppy right @2022-NguyenThiNhuPhuong</p>
     </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
