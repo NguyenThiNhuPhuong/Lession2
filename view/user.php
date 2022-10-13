@@ -65,7 +65,7 @@
                    <a><i class="fa fa-pencil-square-o"></i></a>
                    <a> <i class="fa fa-minus-circle"></i></a>
                    <a> <i class="fa fa-file"></i></a>
-                   <a><i class="fa fa-eye"></i></a>
+                   <a href="/Lession2/Home/detail/'. $item['id'].'"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>';
             }else{
@@ -80,7 +80,7 @@
                    <a><i class="fa fa-pencil-square-o"></i></a>
                    <a> <i class="fa fa-minus-circle"></i></a>
                    <a> <i class="fa fa-file"></i></a>
-                   <a><i class="fa fa-eye"></i></a>
+                   <a href="/Lession2/Home/detail/'. $data['user']['id'].'"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>';
             }

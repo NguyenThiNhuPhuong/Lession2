@@ -27,6 +27,23 @@ class Home extends Controller
             "user"=> $user,
         ]);
     }
+
+    function detail($id)
+    {
+
+
+        $user = $this->user->authenToken();
+        if ($user == null)
+        {
+            //$status_user = false;
+            header('Location: /Lession2/Home/login');
+            die();
+        }
+        $view = $this->view("userdetail", [
+            "user"=> $this->user->user($id),
+        ]);
+    }
+
     function login()
     {
         $message='';
@@ -49,6 +66,7 @@ class Home extends Controller
             "message"=>'',
         ]);
     }
+
     function register()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -73,6 +91,7 @@ class Home extends Controller
             "message"=>$this->message
         ]);
     }
+
     function logout()
     {
         $token = $_COOKIE['token'];

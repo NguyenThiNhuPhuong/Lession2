@@ -66,9 +66,9 @@ class userModel extends Database
         return $this->executeResult($query);
     }
 
-    function user($email)
+    function user($id)
     {
-        $query = "SELECT * FROM nguoidung WHERE email='$email'";
+        $query = "SELECT * FROM user WHERE id='". $id ."'";
         return $this->executeResult($query, true);
     }
 

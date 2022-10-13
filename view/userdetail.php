@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./user">Home </a>
+                    <a class="nav-link" href="/Lession2">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn btn-primary" href="#">Detail</a>
@@ -43,24 +43,14 @@
             <form style="width: 90%;margin: 20px 0" method="post" action="">
                 <div class="form-group">
                     <label for="exampleInputFullname">Full name</label>
-                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" required>
+                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" readonly value="<?=$data['user']['fullname']?>">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputConfirmpassword">Confirm password</label>
-                    <input type="password" class="form-control" id="exampleInputConfirmpassword" name="confirmpassword" required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" readonly value="<?=$data['user']['email']?>">
+
                 </div>
 
-                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>

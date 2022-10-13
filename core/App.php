@@ -31,8 +31,7 @@ class App
         // xu ly params
       $this->params = $url ? array_values($url) : [];
         $h = new $this->controller();
-       call_user_func_array([$h, $this->action], $this->params);
-
+    call_user_func_array([$h, $this->action], $this->params);
     }
     function UrlProcess()
     {
