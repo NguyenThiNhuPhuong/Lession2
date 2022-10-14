@@ -71,7 +71,7 @@
         </div>
     </div>
     <footer style="margin-top: 50px">
-        <p class="">Coppy right @2022-NguyenThiNhuPhuong</p>
+        <p class="">Copy right &copy  2022 - NguyenThiNhuPhuong</p>
     </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
