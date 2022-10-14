@@ -155,7 +155,7 @@ class Home extends Controller
                     $this->user->updateRemember($_POST['email'], $token);
                 }
 
-                header('Location: ./listuser');
+                header('Location: /Lession2');
             } else {
                 $message = "* The login account is incorrect, please try again!";
             }
