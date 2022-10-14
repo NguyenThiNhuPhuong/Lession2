@@ -10,7 +10,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Font awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title><?=$data['user']['role']?></title>
+    <title><?= $data['user']['role'] ?></title>
 </head>
 <body>
 <div class="container">
@@ -43,44 +43,44 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Fullname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">Operations</th>
+                <th class="text-center" scope="col">#</th>
+                <th class="text-center" scope="col">Fullname</th>
+                <th class="text-center" scope="col">Email</th>
+                <th class="text-center" scope="col">Role</th>
+                <th class="text-center" scope="col">Operations</th>
             </tr>
             </thead>
             <tbody>
             <?php
-            if($data['user']['role']=='Admin') {
+            if ($data['user']['role'] == 'Admin') {
                 foreach ($data['list'] as $item)
                     echo
                         '<tr>
 
-                <th scope="row">' . $item['id'] . '</th>
-                <td>' . $item['fullname'] . '</td>
-                <td>' . $item['email'] . '</td>
-                <td>' . $item['role'] . '</td>
-                <td>
-                   <a><i class="fa fa-pencil-square-o"></i></a>
-                   <a> <i class="fa fa-minus-circle"></i></a>
-                   <a> <i class="fa fa-file"></i></a>
-                   <a href="/Lession2/Home/detail/'. $item['id'].'"><i class="fa fa-eye"></i></a>
+                <th  class="text-center"scope="row">' . $item['id'] . '</th>
+                <td class="text-center">' . $item['fullname'] . '</td>
+                <td class="text-center">' . $item['email'] . '</td>
+                <td class="text-center">' . $item['role'] . '</td>
+                <td class="text-center">
+                   <a href="/Lession2/Home/edit/' . $item['id'] . '"><i class="fa fa-pencil-square-o"></i></a>
+                   <a href="/Lession2/Home/detail/' . $item['id'] . '"> <i class="fa fa-minus-circle"></i></a>
+                   <a href="/Lession2/Home/detail/' . $item['id'] . '"> <i class="fa fa-file"></i></a>
+                   <a href="/Lession2/Home/detail/' . $item['id'] . '"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>';
-            }else{
-                    echo
-                        '<tr>
+            } else {
+                echo
+                    '<tr>
 
-                <th scope="row">' . $data['user']['id'] . '</th>
-                <td>' . $data['user']['fullname'] . '</td>
-                <td>' . $data['user']['email'] . '</td>
-                <td>' . $data['user']['role'] . '</td>
-                <td>
-                   <a><i class="fa fa-pencil-square-o"></i></a>
-                   <a> <i class="fa fa-minus-circle"></i></a>
-                   <a> <i class="fa fa-file"></i></a>
-                   <a href="/Lession2/Home/detail/'. $data['user']['id'].'"><i class="fa fa-eye"></i></a>
+                <th class="text-center" scope="row">' . $data['user']['id'] . '</th>
+                <td class="text-center">' . $data['user']['fullname'] . '</td>
+                <td class="text-center">' . $data['user']['email'] . '</td>
+                <td class="text-center">' . $data['user']['role'] . '</td>
+                <td class="text-center">
+                   <a href="/Lession2/Home/edit/' . $data['user']['id'] . '"><i class="fa fa-pencil-square-o"></i></a>
+                   <a href="/Lession2/Home/detail/' . $data['user']['id'] . '"> <i class="fa fa-minus-circle"></i></a>
+                   <a href="/Lession2/Home/detail/' . $data['user']['id'] . '"> <i class="fa fa-file"></i></a>
+                   <a href="/Lession2/Home/detail/' . $data['user']['id'] . '"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>';
             }

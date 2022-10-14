@@ -9,6 +9,7 @@ class App
     {
         $url = $this->UrlProcess();
 
+        //xu ly controller
         if (isset($url[0])) {
             if(file_exists("C:/xampp/htdocs/Lession2/controller/" . $url[0] . ".php")){
                 $this->controller = $url[0];
@@ -27,12 +28,13 @@ class App
             }
 
         }
-
         // xu ly params
       $this->params = $url ? array_values($url) : [];
-        $h = new $this->controller();
-    call_user_func_array([$h, $this->action], $this->params);
+        $temp = new $this->controller();
+    call_user_func_array([$temp, $this->action], $this->params);
     }
+
+    //Chuyển url thành một mảng
     function UrlProcess()
     {
         if (isset($_GET['url'])) {

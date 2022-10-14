@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Detail</title>
+    <title>Edit</title>
 </head>
 <body>
 <div class="container">
@@ -27,7 +27,7 @@
                     <a class="nav-link" href="/Lession2">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary" href="#">Detail</a>
+                    <a class="nav-link btn btn-primary" href="#">Edit</a>
                 </li>
             </ul>
 
@@ -41,21 +41,36 @@
     <div class="row justify-content-center" style="margin-top: 80px">
         <div class="row justify-content-center w-50 border border-secondary">
             <form style="width: 90%;margin: 20px 0" method="post" action="">
-                <div class="form-group">
-                    <label for="exampleInputFullname">Full name</label>
-                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" readonly value="<?=$data['user']['fullname']?>">
-                </div>
+
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" readonly value="<?=$data['user']['email']?>">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           name="email" readonly value="<?= $data['user']['email'] ?>">
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputRole">Role</label>
-                    <input type="text" class="form-control" id="exampleInputRole"  name="role" readonly value="<?=$data['user']['role']?>">
-
+                    <label for="exampleInputFullname">Full name</label>
+                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" required
+                           value="<?= $data['user']['fullname'] ?>">
                 </div>
-
+                <?php
+                if ($data['role'] == 'Admin') {
+                    echo '<div class="form-group">
+                    <label for="exampleFormControlSelect1">Role</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="role" required>
+                        <option value="Admin"' . ($data["user"]["role"] == "Admin" ? "selected" : " ") . '>Admin</option>
+                        <option value="User"' . ($data["user"]["role"] == "User" ? "selected" : " ") . '>User</option>
+                    </select>
+                </div>';
+                } else {
+                    echo '<div class="form-group">
+            <label for="exampleInputRole">Role</label>
+            <input type="text" class="form-control" id="exampleInputRole" name="role" readonly
+                   value="' . $data['user']['role'] . '">
+        </div>';
+                }
+                ?>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </form>
         </div>
     </div>

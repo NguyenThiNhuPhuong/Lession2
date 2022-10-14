@@ -47,23 +47,23 @@
             <form style="width: 90%;margin: 20px 0" method="post" action="">
                 <div class="form-group">
                     <label for="exampleInputFullname">Full name</label>
-                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" required>
+                    <input type="text" class="form-control" id="exampleInputFullname" name="fullname" value="<?=$data['old']['fullname']?> " required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           name="email" required>
+                           name="email" value="<?=$data['old']['email']?>" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password"  minlength="6"  required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputConfirmpassword">Confirm password</label>
                     <input type="password" class="form-control" id="exampleInputConfirmpassword" name="confirmpassword"
-                           required>
+                           required minlength="6">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Register</button>

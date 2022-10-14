@@ -2,9 +2,9 @@
 
 class userModel extends Database
 {
-    function updateUser($fullname, $password, $email, $role)
+    function update($email,$fullname,$role)
     {
-        $query = "UPDATE user SET fullname = '" . $fullname . "',password='" . $password . "',role='" . $role . "'WHERE  email='" . $email . "'";
+        $query = "UPDATE user SET fullname = '" . $fullname .  "',role='" . $role . "'WHERE  email='" . $email . "'";
         $this->execute($query);
     }
     function updateRemember(  $email,$remember)
@@ -12,7 +12,7 @@ class userModel extends Database
         $query = "UPDATE user SET remember = '" . $remember . "'WHERE  email='" . $email . "'";
         $this->execute($query);
     }
-    function Login($email, $password)
+    function login($email, $password)
     {
         $query = "SELECT * From user WHERE email='" . $email . "' AND password='" . $password . "'";
         $list = $this->executeResult($query);
@@ -54,7 +54,7 @@ class userModel extends Database
 
     }
 
-    function Register($email, $fullname, $password, $role)
+    function register($email, $fullname, $password, $role)
     {
         $query = "INSERT INTO user (fullname,password,role,email) VALUES('" . $fullname . "','" . $password . "','" . $role . "','" . $email . "')";
         $this->execute($query);
@@ -72,9 +72,9 @@ class userModel extends Database
         return $this->executeResult($query, true);
     }
 
-    function deleteUser($email)
+    function delete($id)
     {
-        $query = "DELETE FROM user WHERE email='" . $email . "'";
+        $query = "DELETE FROM user WHERE id='" . $id . "'";
         $this->execute($query);
     }
 }
